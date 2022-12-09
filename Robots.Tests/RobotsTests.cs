@@ -85,5 +85,11 @@
             robotManager.Work("robotName", "job", 5);
             Assert.That(robot.Battery, Is.EqualTo(result));
         }
+
+        [Test]
+        public void ChargeWithNonExistentRobotThrows()
+        {
+            Assert.Throws<InvalidOperationException>(() => robotManager.Charge("robotName"));
+        }
     }
 }
