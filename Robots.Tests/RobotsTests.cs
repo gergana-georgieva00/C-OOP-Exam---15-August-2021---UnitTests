@@ -49,5 +49,11 @@
             robotManager.Add(robot);
             Assert.Throws<InvalidOperationException>(() => robotManager.Add(new Robot("name", 50)));
         }
+
+        [Test]
+        public void RemoveWithNullThrows()
+        {
+            Assert.Throws<InvalidOperationException>(() => robotManager.Remove(null));
+        }
     }
 }
