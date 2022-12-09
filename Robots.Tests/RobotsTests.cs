@@ -20,5 +20,11 @@
         {
             Assert.Throws<ArgumentException>(() => robotManager = new RobotManager(-2));
         }
+
+        [Test]
+        public void CapacityGetterWorks()
+        {
+            Assert.That(robotManager.Capacity, Is.EqualTo(5));
+        }
     }
 }
