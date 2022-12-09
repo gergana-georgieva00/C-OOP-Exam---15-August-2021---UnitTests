@@ -55,5 +55,13 @@
         {
             Assert.Throws<InvalidOperationException>(() => robotManager.Remove(null));
         }
+
+        [Test]
+        public void RemoveWorks()
+        {
+            robotManager.Add(robot);
+            robotManager.Remove("robotName");
+            Assert.That(robotManager.Count, Is.EqualTo(0));
+        }
     }
 }
