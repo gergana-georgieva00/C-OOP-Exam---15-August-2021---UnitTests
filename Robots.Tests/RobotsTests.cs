@@ -76,5 +76,14 @@
             robotManager.Add(robot);
             Assert.Throws<InvalidOperationException>(() => robotManager.Work("robotName", "job", 10000));
         }
+
+        [Test]
+        public void WorkMethodWorks()
+        {
+            robotManager.Add(robot);
+            var result = robot.Battery - 5;
+            robotManager.Work("robotName", "job", 5);
+            Assert.That(robot.Battery, Is.EqualTo(result));
+        }
     }
 }
