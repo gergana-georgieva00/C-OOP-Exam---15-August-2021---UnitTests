@@ -34,5 +34,12 @@
             robotManager.Add(robot);
             Assert.That(robotManager.Count, Is.EqualTo(1));
         }
+
+        [Test]
+        public void AddWithExistentRoboThrows()
+        {
+            robotManager.Add(robot);
+            Assert.Throws<InvalidOperationException>(() => robotManager.Add(robot));
+        }
     }
 }
