@@ -69,5 +69,12 @@
         {
             Assert.Throws<InvalidOperationException>(() => robotManager.Work("name", "job", 10));
         }
+
+        [Test]
+        public void WorkWithNotEnoughBatteryThrows()
+        {
+            robotManager.Add(robot);
+            Assert.Throws<InvalidOperationException>(() => robotManager.Work("robotName", "job", 10000));
+        }
     }
 }
