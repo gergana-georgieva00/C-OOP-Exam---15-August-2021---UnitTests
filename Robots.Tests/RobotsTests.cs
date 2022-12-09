@@ -41,5 +41,13 @@
             robotManager.Add(robot);
             Assert.Throws<InvalidOperationException>(() => robotManager.Add(robot));
         }
+
+        [Test]
+        public void AddWithWithFilledCapacityThrows()
+        {
+            robotManager = new RobotManager(1);
+            robotManager.Add(robot);
+            Assert.Throws<InvalidOperationException>(() => robotManager.Add(new Robot("name", 50)));
+        }
     }
 }
