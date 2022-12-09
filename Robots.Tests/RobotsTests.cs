@@ -91,5 +91,14 @@
         {
             Assert.Throws<InvalidOperationException>(() => robotManager.Charge("robotName"));
         }
+
+        [Test]
+        public void ChargeWorks()
+        {
+            robotManager.Add(robot);
+            robotManager.Work("robotName", "job", 5);
+            robotManager.Charge("robotName");
+            Assert.That(robot.Battery, Is.EqualTo(robot.MaximumBattery));
+        }
     }
 }
