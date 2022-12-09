@@ -26,5 +26,13 @@
         {
             Assert.That(robotManager.Capacity, Is.EqualTo(5));
         }
+
+        [Test]
+        public void CountGetterWorks()
+        {
+            Assert.That(robotManager.Count, Is.EqualTo(0));
+            robotManager.Add(robot);
+            Assert.That(robotManager.Count, Is.EqualTo(1));
+        }
     }
 }
