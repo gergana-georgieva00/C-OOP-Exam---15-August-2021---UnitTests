@@ -63,5 +63,11 @@
             robotManager.Remove("robotName");
             Assert.That(robotManager.Count, Is.EqualTo(0));
         }
+
+        [Test]
+        public void WorkWithNonExistentRobotThrows()
+        {
+            Assert.Throws<InvalidOperationException>(() => robotManager.Work("name", "job", 10));
+        }
     }
 }
